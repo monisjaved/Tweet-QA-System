@@ -34,6 +34,7 @@ for i in open("autocomplete.txt").read().split("\n"):
 		autocomplete_file.append(i)
 	except:
 		pass
+		
 logger = open("logger.txt","r+")
 logger.seek(0,2)
 
@@ -52,9 +53,9 @@ def getAutoComplete():
 @support_jsonp
 def getResults():
 	query = request.args.get("query")[1:-1]
-    	logger.write("%s %s\n"%(query,request.remote_addr))
-    	logger.flush()
-	print query
+	logger.write("%s %s\n"%(query,request.remote_addr))
+	logger.flush()
+	# print query
 	qwords = word_tokenize(query)
 	postags = pos_tag(qwords)
 	postags = {i[0].lower:i[1] for i in postags}
@@ -108,7 +109,7 @@ def getResults():
 	return jsonify({'answer':answer, 'tweets':resp_dict['tweets'],'tweet_count':len(resp_dict['tweets']),
 					'hashtags':{'labels':labels_hashtags, 'count':count_hashtags},
 					'sentiment':{'labels':labels_sentiment, 'count':count_sentiment},
-					'wordcloud':word})
+					'wordcloud':word, 'status':resp_dict['status']})
 
 
 
