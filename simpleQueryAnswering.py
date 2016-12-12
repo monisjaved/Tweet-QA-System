@@ -8,12 +8,16 @@ import json
 from bs4 import BeautifulSoup
 import requests
 
+__author___ = "Monis Javed"
+__version__ = "1.0.0"
+__email__ = "monis.javed@gmail.com"
 
+# solr link for querying
 link = "http://localhost:8001/solr/IRF16P4/select?defType=dismax&q=%s&qf=relations^2.5 processed_text&wt=json&rows=10"
-
 
 return_dict = {}
 
+# load tokenizer
 sent_detector = nltk.data.load("tokenizers/punkt/english.pickle")
 
 # Hardcoded word lists

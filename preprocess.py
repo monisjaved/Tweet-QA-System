@@ -1,9 +1,9 @@
 #!/usr/bin/python
-#
-# This example shows how to use the MITIE Python API to perform named entity
-# recognition and also how to run a binary relation detector on top of the
-# named entity recognition outputs.
-#
+
+__author___ = "Monis Javed"
+__version__ = "1.0.0"
+__email__ = "monis.javed@gmail.com"
+
 import sys
 import glob
 from pprint import pprint
