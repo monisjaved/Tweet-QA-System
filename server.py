@@ -30,7 +30,7 @@ app = Flask(__name__)
 autocomplete_file = []
 for i in open("autocomplete.txt").read().split("\n"):
 	try:
-		i = i.lower().encode("utf8")
+		i = i.encode("utf8")
 		autocomplete_file.append(i)
 	except:
 		pass
@@ -113,4 +113,8 @@ def getResults():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8888, host='0.0.0.0')
+    while True:
+        try:
+            app.run(port=8888, host='0.0.0.0', threaded=True)
+        except:
+            pass
